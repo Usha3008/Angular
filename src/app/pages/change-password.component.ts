@@ -20,38 +20,38 @@ export class ChangePasswordComponent {
   errorMessage: string = '';
 
   constructor(private changePasswordService: ChangePasswordService, private router: Router) {}
-
   onChangePassword() {
+    this.errorMessage = '';
     if (this.newPassword !== this.newPasswordConfirm) {
       this.errorMessage = 'New passwords do not match';
       return;
     }
-
+  
     if (this.newPassword.length < 6) {
       this.errorMessage = 'New password must be at least 6 characters long';
       return;
     }
-
+  
     const username = window.sessionStorage.getItem('username');
     if (!username) {
       alert('Username not found. Please log in again.');
       this.router.navigateByUrl('/login');
       return;
     }
-
+  
     this.changePasswordService.changePassword(username, this.oldPassword, this.newPassword)
       .subscribe({
         next: (response) => {
-          alert(response.message);
+          alert('Password changed successfully');
           this.router.navigateByUrl('/login');
         },
         error: (error) => {
-          this.errorMessage = 'Failed to update password: ' + error.error.message;
+          const message = error.error?.message || error.message || 'Unknown error occurred';
+          this.errorMessage = 'Failed to update password: ' + message;
           console.error('Failed to update password:', error);
         }
       });
-  }
-}
+  }}
 
 
 export class PasswordChangeModel {
