@@ -4,10 +4,9 @@
             <div class="row justify-content-center mb-3">
                 <i class="fa fa-key fa-3x" aria-hidden="true" style="color: #F0F0F0;"></i>
             </div>
-            <div class="row justify-content-center mb-4">
+            <div class="row justify-content-center mb-4 text-center"> <!-- Center the panel title -->
                 <h2 style="color: #FFFFFF;">PCT BANK LOGIN PANEL</h2>
             </div>
-
             <div class="row">
                 <div class="col-12">
                     <form (ngSubmit)="onLogin()">
@@ -19,12 +18,8 @@
                             <label class="form-control-label" style="color: #CCCCCC;">PASSWORD</label>
                             <input type="password" [(ngModel)]="password" name="inputpassword" class="form-control" required />
                         </div>
-
                         <div class="row">
-                            <div class="col-lg-6 login-btm login-text">
-                                <!-- Error Message -->
-                            </div>
-                            <div class="col-lg-6 login-btm login-button">
+                            <div class="col-12 text-center"> <!-- Center the button horizontally -->
                                 <button type="submit" class="btn btn-primary" style="background-color: #0069D9; border-color: #005cbf;" onmouseover="this.style.backgroundColor='#005cbf'" onmouseout="this.style.backgroundColor='#0069D9'">LOGIN</button>
                             </div>
                         </div>
