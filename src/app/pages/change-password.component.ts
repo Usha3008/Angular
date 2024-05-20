@@ -21,14 +21,6 @@ export class ChangePasswordComponent {
 
   constructor(private changePasswordService: ChangePasswordService, private router: Router) {}
 
-  toggleOldPasswordVisibility() {
-    this.oldPasswordFieldType = this.oldPasswordFieldType === 'password' ? 'text' : 'password';
-  }
-
-  toggleNewPasswordVisibility() {
-    this.newPasswordFieldType = this.newPasswordFieldType === 'password' ? 'text' : 'password';
-  }
-
   onChangePassword() {
     if (this.newPassword !== this.newPasswordConfirm) {
       this.errorMessage = 'New passwords do not match';
