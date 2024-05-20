@@ -49,9 +49,6 @@ export class LoginComponent {
       });
   }
 
-  togglePasswordVisibility() {
-    this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
-  }
 }
 
 export class LoginResponse {
